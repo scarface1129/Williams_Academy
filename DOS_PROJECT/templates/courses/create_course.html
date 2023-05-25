@@ -1,0 +1,114 @@
+
+
+
+    
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Williams Academy</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/static/images/favicons/site.webmanifest" />
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/iofrm-theme23.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+    <div class="form-body on-top-mobile">
+        <div class="website-logo">
+            <a href="index.html">
+                <div class="logo">
+                    <img class="logo-size" src="images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg" style='background-image: url("/static/images/backgrounds/main-slider-v2-2.jpg")'></div>
+                <div class="info-holder simple-info">
+                    <div><img src="/static/images/resources/logo-2.png" alt=""></div>
+                    <div><h3>We’re Accepting applications!</h3></div>
+                    <div><p>Fill the form, attach your  latest CV <br>and portfolio to get listed.</p></div>
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" name="Tutor" maxlength="100" required id="id_Tutor" placeholder="Tutor's Name">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="Image" required id="id_Image">
+                                        <label class="custom-file-label" for="id_Image">Upload Course Image (Resume)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="Name" maxlength="100" required id="id_Name" class="form-control" placeholder="Course Name">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" name="Rating" maxlength="50" required id="id_Rating" class="form-control" placeholder="Rating">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" name="Price_dollars" required id="id_Price_dollars" class="form-control" placeholder="Price(Dollars)">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" name="Price_naira" required id="id_Price_naira" class="form-control" placeholder="Price(Naira)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" name="No_of_lessons" required id="id_No_of_lessons" class="form-control" placeholder="Number of Lessons">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" name="Duration" required id="id_Duration" class="form-control" placeholder="Duration">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="Link" maxlength="200" required id="id_Link" class="form-control" placeholder="Link To Directory">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="Level" maxlength="200" required id="id_Level" class="form-control" placeholder="Course Level eg: BEGINNER">
+                                </div>
+                               
+                            </div>
+                            
+                            
+                            <div class="row top-padding">
+                                <div class="col-12 col-sm-6">
+                                    <input type="checkbox" id="chk1" required><label for="chk1">I agree on <a href="#">terms & conditions</a> of iofrm</label>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-button text-right">
+                                        <button id="submit" type="submit" class="ibtn less-padding">Submit Application</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+
+</html>  

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Williams Academy</title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'images/favicons/site.webmanifest' %}" />
+    <meta name="description" content="Crsine HTML  For Car Services" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    {%include 'snippets/css.html'%}
+</head>
+
+<body>
+
+    <div class="preloader">
+        <img class="preloader__image" width="60" src="{% static 'images/loader.png' %}" alt="" />
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+    {%include 'snippets/footer.html'%} 
+        <!--End Footer One-->
+    </div><!-- /.page-wrapper -->
+
+    {%include 'snippets/search.html'%} 
+    <!-- /.search-popup -->
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    {%include 'snippets/js.html'%}
+
+</body>
+
+</html>

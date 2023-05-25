@@ -1,0 +1,517 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- /.preloader -->
+        <div class="page-wrapper">
+
+            {%include 'snippets/header.html'%} 
+    
+    
+            <div class="stricky-header stricked-menu main-menu">
+                <div class="sticky-header__content">
+    
+                </div><!-- /.sticky-header__content -->
+            </div><!-- /.stricky-header -->
+    
+    
+    
+        <!--Page Header Start-->
+        <section class="page-header clearfix" style="background-image: url({% static 'images/backgrounds/page-header-bg.jpg' %});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="page-header__wrapper clearfix">
+                            <div class="page-header__title">
+                                <h2>About</h2>
+                            </div>
+                            <div class="page-header__menu">
+                                <ul class="page-header__menu-list list-unstyled clearfix">
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li class="active">about</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+    
+        <!--About Two Start-->
+        <section class="about-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="about-two__single-img">
+                            <img src="{% static 'images/about/about-v2-img2.jpg' %}" alt=""/>
+                        </div>
+                    </div>
+    
+                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                        <div class="about-two__single-img">
+                            <img src="{% static 'images/about/about-v2-img1.jpg' %}" alt=""/>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="about-two__bottom-content">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="about-two__title-box">
+                                <div class="section-title">
+                                    <span class="section-title__tagline">About Williams Academy</span>
+                                    <h2 class="section-title__title">Blockchain and Cryptocurrency Education <br>Simplified</h2>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="about-two__text-box">
+                                <p class="about-two__text-box-text" style="text-align: justify;">We are dedicated to providing comprehensive education on blockchain technology, Web3 and cryptocurrency Trading. Our team of experts is passionate about sharing their knowledge and expertise to help individuals and businesses navigate the complex and rapidly evolving world of blockchain and crypto. Whether you're a beginner or an experienced professional, our courses and resources will equip you with the skills and understanding necessary to succeed in this exciting and transformative industry.
+                                    Join us on this journey of discovery and innovation!</p>
+                                <div class="about-two__text-box-btn">
+                                    <a href="{% url 'courses:courses' %}" class="thm-btn">view all courses</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--About Two End-->
+    
+    
+    
+       <!--Company Logos One Start-->
+       
+       <section class="company-logos-one company-logos-one--two">
+           <div class="container">
+               <div class="company-logos-one__title text-center">
+                   <h6>
+                       Apps you will get familiar with </h6>
+               </div>
+               <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+               "0": {
+                   "spaceBetween": 30,
+                   "slidesPerView": 2
+               },
+               "375": {
+                   "spaceBetween": 30,
+                   "slidesPerView": 2
+               },
+               "575": {
+                   "spaceBetween": 30,
+                   "slidesPerView": 3
+               },
+               "767": {
+                   "spaceBetween": 50,
+                   "slidesPerView": 4
+               },
+               "991": {
+                   "spaceBetween": 50,
+                   "slidesPerView": 5
+               },
+               "1199": {
+                   "spaceBetween": 100,
+                   "slidesPerView": 5
+               }
+           }}'>
+                   <div class="swiper-wrapper">
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo1.png' %}" alt="https://trustwallet.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo2.png' %}" alt="https://www.binance.com/en">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo3.png' %}" alt="https://www.bybit.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo4.png' %}" alt="https://www.coingecko.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo5.png' %}" alt="https://www.metamask.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo6.png' %}" alt="https://www.opensea.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo7.png' %}" alt="https://www.tradingview.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo8.png' %}" alt="https://www.rarible.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo9.png' %}" alt="https://www.redit.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo10.png' %}" alt="https://telegram.com/">
+                       </div><!-- /.swiper-slide -->
+                       <div class="swiper-slide">
+                           <img src="{% static 'images/resources/Company-Logos-v1-logo11.png' %}" alt="https://twitter.com/">
+                       </div><!-- /.swiper-slide -->
+                   </div>
+               </div>
+           </div>
+       </section>
+       <!--Company Logos One End-->
+    
+    
+    
+    
+       <!--Testimonials One Start-->
+     <section class="testimonials-one clearfix">
+        <div class="auto-container">
+            <div class="section-title text-center">
+                <span class="section-title__tagline">WHAT THEY SAY ABOUT US</span>
+                <h2 class="section-title__title">Reviews and Testimonials</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testimonials-one__wrapper">
+                        <div class="testimonials-one__pattern"><img
+                                src="{% static 'images/pattern/testimonials-one-left-pattern.png' %}" alt="" /></div>
+                        <div class="shape1"><img src="{% static 'images/shapes/thm-shape3.png' %}" alt="" /></div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="testimonials-one__carousel owl-carousel owl-theme owl-dot-type1">
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="0ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Crypto Beginner Course</h4>
+                                            <p class="testimonials-one__single-text">I had no prior knowledge of cryptocurrency before attending Williams's class,
+                                                 but I was amazed at how much I learned in just a few sessions.
+                                                 The instructor provided clear explanations and useful resources that
+                                                 helped me understand the basics of cryptocurrency.
+                                                I'm excited to continue learning more about this exciting field.</p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img1.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Francis Ojunwa</h5>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+    
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="100ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Technical Analysis</h4>
+                                            <p class="testimonials-one__single-text">Attending the cryptocurrency technical analysis class was a game-changer for me.
+                                                I learned so much and feel much more confident in my ability to navigate the crypto market. 
+                                                Thanks for the great class!</p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img2.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Dotun Arewatunji</h5>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+    
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Crypto Beginner Course</h4>
+                                            <p class="testimonials-one__single-text">As a complete beginner to cryptocurrency, I was initially intimidated by
+                                                 the subject matter. However, Williams Academy class was accessible, well-paced, and thoroughly engaging.
+                                                I appreciated the instructor's patient and thoughtful approach,
+                                                 and left the class feeling much more confident in my understanding of cryptocurrency.</p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img3.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Nora Echea</h5>
+                                                    <p>Nurse</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="0ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Crypto Mastery Course</h4>
+                                            <p class="testimonials-one__single-text">I've been investing in cryptocurrencies for a few years now,
+                                                but attending Williams's Academy has helped me better understand the technology behind it.
+                                                I appreciated how the instructor took the time to answer
+                                                all of my questions and provide real-life examples of how cryptocurrency can be used.</p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img1.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Skay</h5>
+                                                    <p>Radiologists | Community Developer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="100ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Technical Analysis</h4>
+                                            <p class="testimonials-one__single-text">Before now, I only know how to buy and sell cryptocurrency, but getting the Technical Analysis 
+                                                course has really helped me step up my games. I cant be grateful enough for the sessions in this course. Thank you Williams for this!
+                                            </p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img2.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Akanni</h5>
+                                                    <p>Business Man</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Crypto Beginner Course</h4>
+                                            <p class="testimonials-one__single-text">I can't recommend Williams Academmy Crypto class enough. 
+                                                The instructor's enthusiasm for the topic was infectious, and His ability to explain complex concepts
+                                                 in simple terms was impressive. </p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img3.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Ihotu Enogela</h5>
+                                                    <p>Lawyer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+                                    <!--Start Single Testimonials One -->
+                                    <div class="testimonials-one__single wow fadeInUp" data-wow-delay="0ms"
+                                        data-wow-duration="1500ms">
+                                        <div class="testimonials-one__single-inner">
+                                            <h4 class="testimonials-one__single-title">Crypto Beginner Course</h4>
+                                            <p class="testimonials-one__single-text"> The instructor's passion for the subject 
+                                                was contagious and left me feeling energized and motivated to continue learning.
+                                                I left the class feeling like I had a solid foundation in cryptocurrency 
+                                                and the confidence to pursue it further. Thanks for this course!</p>
+                                            <div class="testimonials-one__single-client-info">
+                                                <div class="testimonials-one__single-client-info-img">
+                                                    <img src="{% static 'images/testimonial/testimonials-v1-client-info-img1.png' %}"
+                                                        alt="" />
+                                                </div>
+                                                <div class="testimonials-one__single-client-info-text">
+                                                    <h5>Golden  Joseph</h5>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Testimonials One -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonials One End-->
+    
+    
+    
+        <!--Counter One Start-->
+        <section class="counter-one counter-one--about jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%" style="background-image: url({% static 'images/backgrounds/Counters-v1-bg.jpg' %});">
+            <div class="container">
+                <div class="row">
+                    <!--Start Counter One Left-->
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="counter-one__left">
+                            <div class="section-title">
+                                <span class="section-title__tagline">START LEARNING TODAY</span>
+                                <h2 class="section-title__title">Start somewhere<br>You're Welcome</h2>
+                            </div>
+                            <p class="counter-one__left-text">Join the moving train, become an expert in Cryptocurrency.
+                                Learn Something awesome today with Williams Academy</p>
+                        </div>
+                    </div>
+                    <!--End Counter One Left-->
+    
+                    <!--Start Counter One Right-->
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="counter-one__right">
+                            <ul class="counter-one__right-box list-unstyled">
+                                <!--Start Counter One Right Single-->
+                                <li class="counter-one__right-single wow slideInUp animated" data-wow-delay="0.1s" data-wow-duration="1500ms">
+                                   <div class="counter-one__right-single-icon">
+                                       <span class="icon-teacher"></span>
+                                   </div>
+                                   <h3 >100%</h3>
+                                   <p class="counter-one__right-text">Practicals</p>
+                               </li>
+                                <!--End Counter One Right Single-->
+    
+                                <!--Start Counter One Right Single-->
+                                <li class="counter-one__right-single wow slideInUp animated" data-wow-delay="0.3s" data-wow-duration="1500ms">
+                                    <div class="counter-one__right-single-icon">
+                                        <span class="icon-online-course"></span>
+                                    </div>
+                                    <h3>Lifetime</h3>
+                                    <p class="counter-one__right-text">Access</p>
+                                </li>
+                                 <!--End Counter One Right Single-->
+    
+                                 <!--Start Counter One Right Single-->
+                                <li class="counter-one__right-single wow slideInUp animated" data-wow-delay="0.5s" data-wow-duration="1500ms">
+                                    <div class="counter-one__right-single-icon">
+                                        <span class="icon-student"></span>
+                                    </div>
+                                    <h3>50+</h3>
+                                        <p class="counter-one__right-text">Students Enrolled</p>
+                                    </li>
+                                 <!--End Counter One Right Single-->
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Counter One Right-->
+                </div>
+            </div>
+        </section>
+        <!--Counter One End-->
+    
+    
+      <!--About One Start-->
+      <br><br>
+      <section class="about-one clearfix">
+        <div class="container">
+            <div class="row">
+                <!-- Start About One Left-->
+                <div class="col-xl-6">
+                    <div class="about-one__left">
+                        <ul class="about-one__left-img-box list-unstyled clearfix">
+                            <li class="about-one__left-single">
+                                <div class="about-one__left-img1">
+                                    <img src="{% static 'images/about/about-v1-img1.jpg' %}" alt="" />
+                                </div>
+                            </li>
+                            <!-- <li class="about-one__left-single">
+                                <div class="about-one__left-img2">
+                                    <img src="{% static 'images/about/about-v1-img2.jpg" alt="" />
+                                </div>
+                            </li> -->
+                        </ul>
+                        <div class="about-one__left-overlay">
+                            <div class="icon">
+                                <span class="icon-relationship"></span>
+                            </div>
+                            <div class="title">
+                                <h6>The Web3 Guru</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End About One Left-->
+    
+                
+               <!-- Start About One Right-->
+               <div class="col-xl-6"> 
+                    
+                            
+                    <div class="about-one__right">
+                        <div class="section-title">
+                            
+                            <span class="section-title__tagline">Meet the Founder</span>
+                            <h2 class="section-title__title">Ifeanyi Uba Willliams</h2>
+                        </div>
+                        <div class="about-one__right-inner">
+                            <p class="about-one__right-text" >Williams is a passionate crypto and blockchain enthusiast who has been
+                                 actively involved in the industry for over 2 years. 
+                                 As a self-taught expert, he has gained extensive knowledge
+                                  on the latest developments in the blockchain and crypto 
+                                  space and is dedicated to spreading awareness about the 
+                                  transformative power of this technology. Currently, 
+                                  Williams is a Mara Ambassador at the University of Nnamdi
+                                   Azikiwe, Awka, and is always on the lookout for the 
+                                   latest news and trends in the industry. In addition to
+                                    his work in the crypto industry, Williams is involved
+                                     in various philanthropic initiatives that use 
+                                     blockchain technology to make a positive impact on                               society.
+    
+    
+    
+                            </p>
+                            <!-- <ul class="about-one__right-list list-unstyled">
+                                <li class="about-one__right-list-item">
+                                    <div class="icon">
+                                        <span class="icon-confirmation"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Get unlimited access to 66000+ of our top courses</p>
+                                    </div>
+                                </li>
+    
+                                <li class="about-one__right-list-item">
+                                    <div class="icon">
+                                        <span class="icon-confirmation"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Explore a variety of fresh educational topics</p>
+                                    </div>
+                                </li>
+    
+                                <li class="about-one__right-list-item">
+                                    <div class="icon">
+                                        <span class="icon-confirmation"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Find the best qualitfied teacher for you</p>
+                                    </div>
+                                </li>
+                            </ul>
+    
+                            <div class="about-one__btn">
+                                <a href="about.html" class="thm-btn">view all courses</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End About One Right-->
+            </div>
+        </div>
+    </section>
+    <!--About One End-->
+    
+    
+    
+    
+        <br>
+        
+    
+      
+    
+    
+
+{% endblock%}

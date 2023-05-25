@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+
+    <header class="main-header main-header--one  clearfix">
+        <div class="main-header--one__top clearfix">
+            <div class="container">
+                <div class="main-header--one__top-inner clearfix">
+                    <div class="main-header--one__top-left">
+                        <div class="main-header--one__top-logo">
+                            <a href="{% url 'home' %}"><img src="{% static 'images/resources/logo-1.png' %}" alt=""/></a>
+                        </div>
+                    </div>
+
+                    <div class="main-header--one__top-right clearfix">
+                        <ul class="main-header--one__top-social-link list-unstyled clearfix">
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+
+                        <div class="main-header--one__top-contact-info clearfix">
+                            <ul class="main-header--one__top-contact-info-list list-unstyled">
+                                <li class="main-header--one__top-contact-info-list-item">
+                                    <div class="icon">
+                                        <span class="icon-phone-call-1"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h6>Call or Whatsapp</h6>
+                                        <p><a href="tel:08068774727">+234 806 877 4727</a></p>
+                                    </div>
+                                </li>
+                                <li class="main-header--one__top-contact-info-list-item">
+                                    <div class="icon">
+                                        <span class="icon-message"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h6>Send us an Email</h6>
+                                        <p><a href="mailto:ifeanyiubawilliams@gmail.com"> info@williamsacademy.xyz</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-header-one__bottom clearfix">
+            <div class="container">
+                <div class="main-header-one__bottom-inner clearfix">
+                    <nav class="main-menu main-menu--1">
+                        <div class="main-menu__inner">
+                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+
+                            <div class="left">
+                                <ul class="main-menu__list">
+                                    <li><a href="{% url 'home' %}" style='color:#757783;'>Home</a></li>
+                                        <!-- <ul>
+                                            <li><a href="index.html">Home One</a></li>
+                                            <li><a href="index-2.html">Home Two</a></li>
+                                            <li class="dropdown">
+                                                <a href="#">Header Styles</a>
+                                                <ul>
+                                                    <li><a href="index.html">Header One</a></li>
+                                                    <li><a href="index-2.html">Header Two</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li> -->
+                                    <li class=''><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'courses' %}">Courses</a></li>
+<!--                                         
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="course-details.html">Course Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#"> Teachers</a>
+                                        <ul>
+                                            <li><a href="teachers-1.html"> Teachers</a></li>
+                                            <li><a href="teachers-2.html">Become Teacher</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">News</a>
+                                        <ul>
+                                            <li><a href="news.html">News</a></li>
+                                            <li><a href="news-details.html">News Details</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li class='current'><a href="{% url 'contact' %}">Contact</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="right">
+                                <div class="main-menu__right">
+                                    <div class="main-menu__right-login-register">
+                                        {% if user.is_authenticated %}
+                                                <ul class="list-unstyled">
+                                                    <li> Welcome <a href='#'>{{ user.username.upper }}</a></li>
+                                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                </ul>
+                                            {% else %}
+                                                <ul class="list-unstyled">
+                                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                                </ul>
+                                            {% endif %}
+                                    </div>
+                                    <div class="main-menu__right-cart-search">
+                                        <div class="main-menu__right-cart-box">
+                                            <a href="#"><span class="icon-shopping-cart"></span></a>
+                                        </div>
+                                        <div class="main-menu__right-search-box">
+                                            <a href="#" class="thm-btn search-toggler">Search</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content">
+
+        </div><!-- /.sticky-header__content -->
+    </div><!-- /.stricky-header -->
+
+
+
+<!--Page Header Start-->
+<section class="page-header clearfix" style="background-image: url({% static 'images/backgrounds/page-header-bg2.jpg' %});">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-header__wrapper clearfix">
+                    <div class="page-header__title">
+                        <h2>Contact</h2>
+                    </div>
+                    <div class="page-header__menu">
+                        <ul class="page-header__menu-list list-unstyled clearfix">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li class="active">Contact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--Page Header End-->
+
+<!--Start Contact Details One-->
+<section class="contact-details-one">
+    <div class="container">
+        <div class="row">
+            <!--Start Single Contact Details One-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-details-one__single">
+                    <div class="contact-details-one__single-icon">
+                        <span class="icon-chat"></span>
+                    </div>
+                    <div class="contact-details-one__single-text">
+                        <h4><a href="tel:+2348068774727">+234 806 877 4727</a></h4>
+                        <p>Call or Whatsapp</p>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Contact Details One-->
+
+            <!--Start Single Contact Details One-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-details-one__single">
+                    <div class="contact-details-one__single-icon">
+                        <span class="icon-message-1"></span>
+                    </div>
+                    <div class="contact-details-one__single-text">
+                        <h4><a href="mailto:info@templatepath.com">info@williamsacademy.xyz</a></h4>
+                        <p>Send us a mail</p>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Contact Details One-->
+
+            <!--Start Single Contact Details One-->
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-details-one__single">
+                    <div class="contact-details-one__single-icon">
+                        <span class="icon-address"></span>
+                    </div>
+                    <div class="contact-details-one__single-text">
+                        <h4>t.me/williamsacademy</h4>
+                        <p>Join Our Community</p>
+                    </div>
+                </div>
+            </div>
+            <!--End Single Contact Details One-->
+        </div>
+    </div>
+</section>
+<!--End Contact Details One-->
+
+<!--Contact Page Start-->
+<section class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline">Send us a Message</span>
+                        <h2 class="section-title__title">We Are Always <br>Ready to Hear <br>From You</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="contact-page__right">
+                    <form action="{% static 'inc/sendemail.php' %}" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" placeholder="Your name" name="name">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <input type="email" placeholder="Email address" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" placeholder="Phone number" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="comment-form__input-box">
+                                    <input type="email" placeholder="Subject" name="Subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="comment-form__input-box">
+                                    <textarea name="message" placeholder="Write message"></textarea>
+                                </div>
+                                <button type="submit" class="thm-btn comment-form__btn">Submit Comment</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Contact Page End-->
+
+<!-- Contact Page Google Map Start-->
+<!-- <section class="contact-page-google-map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd"
+        class="contact-page-google-map__one" allowfullscreen></iframe>
+</section> -->
+<!--Contact Page Google Map End -->
+
+
+<!--Start Footer One-->
+
+{% endblock %}
