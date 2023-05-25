@@ -65,3 +65,4 @@ class Reviews(models.Model):
     
     class Meta:
         verbose_name_plural = "Review"
+        ordering=[ '-created_at' ]
