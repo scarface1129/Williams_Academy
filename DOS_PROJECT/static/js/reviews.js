@@ -11,6 +11,8 @@ $("#commentform").submit(function (e) {
             $("#commentform").trigger('reset');
             var instance = JSON.parse(response["instance"]);
             var fields = instance[0]["fields"];
+            var rating = document.getElementById('rating_').innerHTML
+            document.getElementById('_rating').innerHTML = Number(rating)+1 + ' ' + 'reviews' ;
             $("#comment").prepend(
                 `<div class="course-details__comment-single">
                 <div class="course-details__comment-img">

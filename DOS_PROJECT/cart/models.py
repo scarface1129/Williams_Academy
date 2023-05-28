@@ -32,6 +32,6 @@ class Order(models.Model):
     cart_id = models.ForeignKey(to=Cart, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.cart_id.user_id.Name
+        return f'{self.cart_id.user_id.username}({self.course_id.Name})'
     class Meta:
         verbose_name_plural = "Order"

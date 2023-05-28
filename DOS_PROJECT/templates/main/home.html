@@ -381,162 +381,48 @@
                     <h2 class="section-title__title">Pick a course</h2>
                 </div>
                 <div class="row">
+                    {% for item in courses %}
                     <!--Start Single Courses One-->
                     <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="0ms"
                         data-wow-duration="1000ms">
                         <div class="courses-one__single">
                             <div class="courses-one__single-img">
-                                <img src="{% static 'images/resources/courses-v1-img1.jpg' %}" alt="" />
+                                <img src="{{item.Image.url}}" alt="course_logo" />
                                 <div class="overlay-text">
-                                    <p>Beginner</p>
+                                    <p>{{item.Level}}</p>
                                 </div>
                             </div>
                             <div class="courses-one__single-content">
                                 <div class="courses-one__single-content-overlay-img">
                                     <img src="{% static 'images/resources/courses-v1-overlay-img1.png' %}" alt="" />
                                 </div>
-                                <h6 class="courses-one__single-content-name">Ifeanyi Uba</h6>
-                                <h4 class="courses-one__single-content-title"><a href="{% url 'courses:course_detail' 1 %}">Crypto Beginner Course</a></h4>
+                                <h6 class="courses-one__single-content-name">{{item.tutor}}</h6>
+                                <h4 class="courses-one__single-content-title"><a href="{% url 'courses:course_detail' item.id %}">Crypto Beginner Course</a></h4>
                                 <div class="courses-one__single-content-review-box">
-                                    <ul class="list-unstyled">
+                                    {% comment %} <ul class="list-unstyled">
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <div class="rateing-box">
+                                    </ul> {% endcomment %}
+                                    {% comment %} <div class="rateing-box">
                                         <span>(4)</span>
-                                    </div>
+                                    </div> {% endcomment %}
                                 </div>
-                                <p class="courses-one__single-content-price">$100 (N74,000)</p>
+                                <p class="courses-one__single-content-price">
+                                    ${{item.Price_dollars}} (N{{item.Price_naira}})
+                                </p>
                                 <ul class="courses-one__single-content-courses-info list-unstyled">
-                                    <li>10 Lessons</li>
-                                    <li>8 Hours</li>
-                                    <!-- <li>Beginner</li> -->
+                                <li>{{item.No_of_lessons}} Lessons</li>
+                                <li>{{item.Duration}} Hours</li>
+                                <!-- <li>Beginner</li> -->
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <!--End Single Courses One-->
-
-                    <!--Start Single Courses One-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms"
-                        data-wow-duration="1000ms">
-                        <div class="courses-one__single">
-                            <div class="courses-one__single-img">
-                                <img src="{% static 'images/resources/courses-v1-img2.jpg' %}" alt="" />
-                                <div class="overlay-text">
-                                    <p>Beginner- Intermediate</p>
-                                </div>
-                            </div>
-                            <div class="courses-one__single-content">
-                                <div class="courses-one__single-content-overlay-img">
-                                    <img src="{% static 'images/resources/courses-v1-overlay-img2.png' %}" alt="" />
-                                </div>
-                                <h6 class="courses-one__single-content-name">Williams</h6>
-                                <h4 class="courses-one__single-content-title"><a href="{% url 'courses:course_detail' 2 %}">Crypto Mastery Course</a></h4>
-                                <div class="courses-one__single-content-review-box">
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <div class="rateing-box">
-                                        <span>(4)</span>
-                                    </div>
-                                </div>
-                                <p class="courses-one__single-content-price">$200 (N148,000)</p>
-                                <ul class="courses-one__single-content-courses-info list-unstyled">
-                                    <li>14 Lessons</li>
-                                    <li>20 Hours</li>
-                                    <!-- <li>Beginner to Advanced</li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Courses One-->
-
-                    <!--Start Single Courses One-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="0ms"
-                        data-wow-duration="1000ms">
-                        <div class="courses-one__single">
-                            <div class="courses-one__single-img">
-                                <img src="{% static 'images/resources/courses-v1-img3.jpg' %}" alt="" />
-                                <div class="overlay-text">
-                                    <p>Intermediate</p>
-                                </div>
-                            </div>
-                            <div class="courses-one__single-content">
-                                <div class="courses-one__single-content-overlay-img">
-                                    <img src="{% static 'images/resources/courses-v1-overlay-img3.png' %}" alt="" />
-                                </div>
-                                <h6 class="courses-one__single-content-name">Ifeanyi Uba</h6>
-                                <h4 class="courses-one__single-content-title"><a href="{% url 'courses:course_detail' 3 %}">Technical Analysis</a></h4>
-                                <div class="courses-one__single-content-review-box">
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <div class="rateing-box">
-                                        <span>(4)</span>
-                                    </div>
-                                </div>
-                                <p class="courses-one__single-content-price">$100 (N74,000)</p>
-                                <ul class="courses-one__single-content-courses-info list-unstyled">
-                                    <li>10 Lessons</li>
-
-                                    <li>12 Hours</li>
-                                    <li>Beginner</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Courses One-->
-
-                    <!--Start Single Courses One-->
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="0ms"
-                    data-wow-duration="1000ms">
-                    <div class="courses-one__single">
-                        <div class="courses-one__single-img">
-                            <img src="{% static 'images/resources/courses-v1-img4.jpg' %}" alt="" />
-                            <div class="overlay-text">
-                                <p>Intermediate</p>
-                            </div>
-                        </div>
-                            <div class="courses-one__single-content">
-                                <div class="courses-one__single-content-overlay-img">
-                                    <img src="{% static 'images/resources/courses-v1-overlay-img2.png' %}" alt="" />
-                                </div>
-                                <h6 class="courses-one__single-content-name">Williams</h6>
-                                <h4 class="courses-one__single-content-title"><a href="{% url 'courses:course_detail' 4 %}">Non-Fungible Token (NFTs)</a></h4>
-                                <div class="courses-one__single-content-review-box">
-                                    <ul class="list-unstyled">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <div class="rateing-box">
-                                        <span>(4)</span>
-                                    </div>
-                                </div>
-                                <p class="courses-one__single-content-price">$100(N74,000)</p>
-                                <ul class="courses-one__single-content-courses-info list-unstyled">
-                                    <li>5 Lessons</li>
-                                    <li>6 Hours</li>
-                                    <!-- <li>Beginner to Advanced</li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Courses One-->
+                    {% endfor %}
                 </div>
             </div>
         </section>

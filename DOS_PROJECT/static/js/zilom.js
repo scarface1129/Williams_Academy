@@ -548,11 +548,13 @@ if ($(".main-menu__list").length && $(".mobile-nav__container").length) {
 
 
 
-if ($(".sticky-header__content").length) {
-  let navContent = document.querySelector(".main-menu").innerHTML;
-  let mobileNavContainer = document.querySelector(".sticky-header__content");
-  mobileNavContainer.innerHTML = navContent;
-}
+// if ($(".sticky-header__content").length) {
+//   console.log("passed");
+//   // let navContent = document.querySelector(".main-menu").innerHTML;
+//   let navContent = document.querySelector(".main-menu").innerHTML;
+//   let mobileNavContainer = document.querySelector(".sticky-header__content");
+//   mobileNavContainer.innerHTML = navContent;
+// }
 
 
 

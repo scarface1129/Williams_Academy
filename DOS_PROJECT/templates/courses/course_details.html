@@ -3,14 +3,11 @@
 
 {% block content %}
 <div class="page-wrapper">
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}" />
     {%include 'snippets/header.html'%} 
-<link rel="stylesheet" href="{% static 'css/reviews.css' %}" />
 
-    <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content">
 
-        </div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
+    
 <!--Page Header Start-->
 <section class="page-header clearfix" style="background-image: url({% static 'images/backgrounds/page-header-bg.jpg' %});">
     <div class="container">
@@ -140,7 +137,8 @@
                                             {% endfor %}
                                             
                                         </div>
-                                        <p class="course-details__review-text">{{rating_len}} reviews</p>
+                                        <p class="course-details__review-text" id='_rating'>{{rating_len}} reviews</p>
+                                        <p style='display:none;' id='rating_'>{{rating_len}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,18 +205,18 @@
         
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Your name" name="name">
+                                                <input type="text" hidden value='{{ user.username }}'  placeholder="Your name" name="name">
                                             </div>
                                                 <input type="text" hidden name="course_id" value='{{ object.id }}'>
                                             <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Email address" name="email">
+                                                <input type="email" hidden value='{{ user.email }}'  placeholder="Email address" name="email">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="comment-form__input-box">
-                                                <textarea name="comment" placeholder="Write Comment"></textarea>
+                                                <textarea name="comment" required placeholder="Write Comment"></textarea>
                                             </div>
                                             <button type="submit" class="thm-btn comment-form__btn">Submit review</button>
                                         </div>
@@ -238,7 +236,13 @@
                     <div class="course-details__price wow fadeInUp animated" data-wow-delay="0.1s">
                         <h2 class="course-details__price-amount">${{ object.Price_dollars}} (N{{ object.Price_naira}})<span><del>Free</del></span></h2>
                         <div class="course-details__price-btn">
-                            <a href="about.html" class="thm-btn">Add to Cart</a>
+                            <form id='add_to_cart'>
+                                {% csrf_token %}
+                                <input name='course_id' hidden value='{{ object.id }}'>
+                                <input name='cart_id' hidden value='{{ user.id }}'>
+                                <button type="submit" class="thm-btn">Add to Cart</button>
+                            </form>
+                            
                         </div>
                     </div>
 
@@ -306,12 +310,12 @@
                             {% for obj in courses %}
                             <li class="course-details__new-courses-list-item">
                                 <div class="course-details__new-courses-list-item-img">
-                                    <img src="{{ obj.Image.url }}" width='90' height='100' alt="course_image"/>
+                                    <img src="{{ obj.Image.url }}" width='90' height='60' alt="course_image"/>
                                 </div>
                                 <div class="course-details__new-courses-list-item-content">
                                     <h4 class="course-details__new-courses-list-item-content-title"><a href="course-details1.html">{{obj.Name}}</a></h4>
                                     <div class="course-details__new-courses-rateing-box">
-                                        <ul class="list-unstyled">
+                                        {% comment %} <ul class="list-unstyled">
                                             <li><i class="fas fa-star"></i></li>
                                             <li><i class="fas fa-star"></i></li>
                                             <li><i class="fas fa-star"></i></li>
@@ -320,7 +324,7 @@
                                         </ul>
                                         <div class="course-details__new-courses-rateing-count">
                                             <span>(4)</span>
-                                        </div>
+                                        </div> {% endcomment %}
                                     </div>
                                     <p class="course-details__new-courses-price">${{obj.Price_dollars}} (N{{obj.Price_naira}})</p>
                                 </div>

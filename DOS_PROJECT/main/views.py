@@ -5,7 +5,9 @@ from django.views.generic import DetailView, View, CreateView, UpdateView, ListV
 
 
 def home(request):
-    return render(request, 'main/home.html')
+    courses = Courses.objects.all().order_by('-id')
+    context = {'courses': courses}
+    return render(request, 'main/home.html', context)
 
 def about(request):
     return render(request, 'main/about.html')

@@ -1,10 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="page-wrapper">
     {%include 'snippets/header.html'%} 
-  <div class="stricky-header stricked-menu main-menu">
-    <div class="sticky-header__content"></div>
-    <!-- /.sticky-header__content -->
-  </div>
+  
   <!-- /.stricky-header -->
 
   <div class="stricky-header stricked-menu main-menu">
@@ -75,16 +72,16 @@
                 >
               </h4>
               <div class="courses-one__single-content-review-box">
-                <ul class="list-unstyled">
+                {% comment %} <ul class="list-unstyled">
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
-                </ul>
-                <div class="rateing-box">
+                </ul> {% endcomment %}
+                {% comment %} <div class="rateing-box">
                   <span>({{item.Rating}})</span>
-                </div>
+                </div> {% endcomment %}
               </div>
               {% comment %}
               <p class="courses-one__single-content-price">

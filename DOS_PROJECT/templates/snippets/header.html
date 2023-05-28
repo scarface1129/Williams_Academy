@@ -99,6 +99,7 @@
                       <div class="main-menu__right-cart-search">
                           <div class="main-menu__right-cart-box">
                               <a href="#"><span class="icon-shopping-cart"></span></a>
+                              <span class='badge badge-warning cart' id='lblCartCount'> {{items_in_cart}} </span>
                           </div>
                           <div class="main-menu__right-search-box">
                               <a href="#" class="thm-btn search-toggler">Search</a>
@@ -112,3 +113,56 @@
     </div>
   </div>
 </header>
+
+<div class="stricky-header stricked-menu main-menu">
+  <div class="sticky-header__content">
+    <nav class="main-menu main-menu--1">
+      <div class="main-menu__inner">
+          <div class="left">
+              <div class="logo-box1">
+                  <a href="{% url 'home' %}">
+                      <img src="{% static 'images/resources/logo-2.png' %}" alt="">
+                  </a>
+              </div>
+          </div>
+          <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+
+          <div class="middle">
+              <ul class="main-menu__list">
+                 <li><a href="{% url 'home' %}" style='color:#4d71e9;'>Home</a></li>
+                  </li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'courses:courses' %}">Courses</a></li>
+                  
+                 </li>
+                
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                  {% if user.is_superuser%}
+                  <li class="dropdown">
+                  <a href="#"> Admin</a>
+                  <ul>
+                      <li><a href="/admin">Dashboard</a></li>
+                      <li><a href="{% url 'courses:course_create'%}"> Create Course</a></li>
+                  </ul>
+                  </li>
+                  {% endif %}
+              </ul>
+          </div>
+
+          <div class="right">
+              <div class="main-menu__right">
+                  <div class="main-menu__right-cart-search" id='cart_'>
+                      <div class="main-menu__right-cart-box">
+                          <a href="#"><span class="icon-shopping-cart"></span></a>
+                          <span class='badge badge-warning cart' id='lblCartCount'> {{items_in_cart}} </span>
+                      </div>
+                      <div class="main-menu__right-search-box">
+                          <a href="#" class="thm-btn search-toggler">Search</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+  </div><!-- /.sticky-header__content -->
+</div><!-- /.stricky-header -->
