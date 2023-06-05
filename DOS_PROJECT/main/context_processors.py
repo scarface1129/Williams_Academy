@@ -8,4 +8,4 @@ def categories_processor(request):
         Orders = Order.objects.filter(cart_id = cart.id)     
         orders = len(Orders)     
         return {'items_in_cart': orders}
-    return {'items_in_cart':'None'}
+    return {'items_in_cart':'0'}

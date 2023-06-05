@@ -15,7 +15,7 @@
             <div class="col-xl-12">
                 <div class="page-header__wrapper clearfix">
                     <div class="page-header__title">
-                        <h2>Course Details</h2>
+                        <h2> My Cart </h2>
                     </div>
                     <div class="page-header__menu">
                         <ul class="page-header__menu-list list-unstyled clearfix">
@@ -42,74 +42,34 @@
                     <div class="course-details__reviews">
                         <!--Start Course Details Comment-->
                         <div id='comment' class="course-details__comment">
-                            {% comment %} {% for review in Reviews %} {% endcomment %}
+                            {% if course %}
+                            {% for course in course %}
                             <div class="course-details__comment-single">
                                 <div class="course-details__comment-img">
-                                    <img src="{% static 'images/resources/course-details-comment-img1.png' %}" alt=""/>
+                                    <img src="{{ course.Image.url }}" width='100' height='80' alt="course_image" />
                                 </div>
                                 <div class="course-details__comment-text">
                                     <div class="course-details__comment-text-top">
-                                        <h3 class="course-details__comment-text-name">Name</h3>
-                                        <p>Date</p>
+                                        <h3 class="course-details__comment-text-name">{{course.Name}}</h3>
+                                        
                                         <div class="course-details__comment-review-stars">
-                                          <p class="course-details__progress-text">Poor</p>
+                                          
                                         </div>
                                     </div>
-                                    <p class="course-details__comment-text-bottom">Name</p>
+                                    <p class="course-details__progress-text">By {{course.Tutor}}</p>
+                                    <p>{{course.Duration}} total hours || {{course.No_of_lessons}} lectures || {{course.Level.capitalize}} Level</p>
+                                    <p class="course-details__comment-text-bottom">${{course.Price_dollars}}(N{{course.Price_naira}})</p>
                                 </div>
                             </div>
-                            {% comment %} {% endfor %} {% endcomment %}
+                            {% endfor %}
+                            {% else %}
+                            <p>No Order in Cart</p>
+                            {% endif %}
                              
                         </div>
                         <!--End Course Details Comment-->
 
-                        <div class="course-details__add-review">
-                            <h2 class="course-details__add-review-title">Add a Review</h2>                          
-                            <div class="course-details__add-review-form">
-                                <form id="commentform">
-                                {% comment %} <form action="{% url 'courses:course_reviews' %}" id="form" method="POST"> {% endcomment %}
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <p>Rate this Course?</p>
-                                        <div id="half-stars-example">
-                                            <div class="rating-group">
-                                                <input class="rating__input rating__input--none" checked name="rating" id="rating2-0" value="0" type="radio">
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="0 stars" class="rating__label" for="rating2-0">&nbsp;</label>
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="1 star" class="rating__label" for="rating2-10"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                                <input class="rating__input" name="rating" id="rating2-10" value="1" type="radio">
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="2 stars" class="rating__label" for="rating2-20"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                                <input class="rating__input" name="rating" id="rating2-20" value="2" type="radio">
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="3 stars" class="rating__label" for="rating2-30"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                                <input class="rating__input" name="rating" id="rating2-30" value="3" type="radio">
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="4 stars" class="rating__label" for="rating2-40"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                                <input class="rating__input" name="rating" id="rating2-40" value="4" type="radio">
-                                                <label style="font-size: 45px; margin-right: -5px;" aria-label="5 stars" class="rating__label" for="rating2-50"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                                <input class="rating__input" name="rating" id="rating2-50" value="5" type="radio">
-                                            </div>
-                                            <p>Space on left side to select 0 stars</p>
-                                        </div>
-        
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Your name" name="name">
-                                            </div>
-                                                <input type="text" hidden name="course_id" value='{{ object.id }}'>
-                                            <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Email address" name="email">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xl-12 col-lg-12">
-                                            <div class="comment-form__input-box">
-                                                <textarea name="comment" placeholder="Write Comment"></textarea>
-                                            </div>
-                                            <button type="submit" class="thm-btn comment-form__btn">Submit review</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        
                     </div>
                     <!--End Course Details Reviews-->
                 </div>
@@ -120,13 +80,14 @@
             <div class="col-xl-4 col-lg-4">
                 <div class="course-details__sidebar">
                     <div class="course-details__price wow fadeInUp animated" data-wow-delay="0.1s">
-                        <h2 class="course-details__price-amount">${{ object.Price_dollars}} (N{{ object.Price_naira}})<span><del>Free</del></span></h2>
+                        <p>Total: </p>
+                        <h2 class="course-details__price-amount">${{ price_dollars}} (N{{ price_naira}})<span></span></h2>
                         <div class="course-details__price-btn">
-                            <form id='add_to_cart'>
+                            <form id=''>
                                 {% csrf_token %}
                                 <input name='course_id' hidden value='{{ object.id }}'>
                                 <input name='cart_id' hidden value='{{ user.id }}'>
-                                <button type="submit" class="thm-btn">Add to Cart</button>
+                                <button type="" class="thm-btn">Payout</button>
                             </form>
                             
                         </div>
@@ -134,59 +95,7 @@
 
                     <div class="course-details__sidebar-meta wow fadeInUp animated" data-wow-delay="0.3s">
                         <ul class="course-details__sidebar-meta-list list-unstyled">
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="far fa-clock"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p><a href="#">Durations:<span>{{ object.Duration}} hours</span></a></p>
-                                </div>
-                            </li>
-
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="far fa-folder-open"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p>Lectures:<span> {{ object.No_of_lessons }} </span></a></p>
-                                </div>
-                            </li>
-
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="far fa-user-circle"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p>Students Enrolled:<span>  {{ '6'}}</span></a></p>
-                                </div>
-                            </li>
-
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="fas fa-play"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p><a href="#">Video:<span>20 hours</span></a></p>
-                                </div>
-                            </li>
-
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="far fa-flag"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p><a href="#">Skill Level:<span>{{object.Level.capitalize}}</span></a></p>
-                                </div>
-                            </li>
-
-                            <li class="course-details__sidebar-meta-list-item">
-                                <div class="icon">
-                                    <a href=""><i class="far fa-bell"></i></a>
-                                </div>
-                                <div class="text">
-                                    <p><a href="#">Language:<span>English</span></a></p>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
 

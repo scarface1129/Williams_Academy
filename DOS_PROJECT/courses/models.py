@@ -52,7 +52,7 @@ class Reviews(models.Model):
     course_id = models.ForeignKey(to = Courses, on_delete = models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    created_at = models.DateField(auto_now=True)
+    created_at = models.DateTimeField(auto_now=True)
     rating = models.IntegerField()
     comment = models.TextField(max_length=2000)
    

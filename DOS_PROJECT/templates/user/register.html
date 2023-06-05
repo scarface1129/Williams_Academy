@@ -1,4 +1,4 @@
- {% comment %} {% load socialaccount %}
+ {% comment %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,6 +96,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+{% load socialaccount %}
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -167,7 +168,7 @@
                             </div>
                         </form>
                         <div class="other-links">
-                            <span>Or register with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                            <span>Or register with</span><a href="{% url 'social:begin' 'facebook' %}">Facebook</a><a href="{% provider_login_url 'google' %}">Google</a><a href="{% url 'social:begin' 'github' %}">Github</a><a href="{% url 'social:begin' 'linkedin-oauth2' %}">Linkedin</a>
                         </div>
                     </div>
                 </div>

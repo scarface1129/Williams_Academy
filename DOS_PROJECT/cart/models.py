@@ -28,8 +28,9 @@ post_save.connect(post_save_user_receiver, sender=User)
 
 
 class Order(models.Model):
-    course_id = models.ForeignKey(to=Courses, on_delete=models.CASCADE)
+    course_id = models.ForeignKey(to=Courses, on_delete=models.CASCADE, related_name='course_rel')
     cart_id = models.ForeignKey(to=Cart, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.cart_id.user_id.username}({self.course_id.Name})'

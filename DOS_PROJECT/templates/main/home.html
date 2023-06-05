@@ -139,7 +139,8 @@
                                     <div class="main-menu__right">
                                         <div class="main-menu__right-cart-search">
                                             <div class="main-menu__right-cart-box">
-                                                <a href="#"><span class="icon-shopping-cart"></span></a>
+                                                <a href="{% url 'cart:cart'%}"><span class="icon-shopping-cart"></span></a>
+                                                <span class='badge badge-warning cart' id='lblCartCount'> {{items_in_cart}} </span>
                                             </div>
                                             <div class="main-menu__right-search-box">
                                                 <a href="#" class="thm-btn search-toggler">Search</a>
@@ -343,7 +344,7 @@
                                 <!--End Welcome One Left Features Box Single-->
                             </ul>
                             <div class="welcome-one__left-btn">
-                                <a href="course.html" class="thm-btn">view all courses</a>
+                                <a href="{% url 'courses:courses'%}" class="thm-btn">view all courses</a>
                             </div>
                         </div>
                     </div>

@@ -64,9 +64,13 @@ class CourseDetail(DetailView):
         module = Module.objects.filter(curriculum=curriculum.id)
         reviews = Reviews.objects.filter(course_id=course.id)
         rating = Reviews.objects.filter(course_id=course.id)[:3]
+        print(rating)
         rating_count = [x.rating for x in reviews]
         rating_len = len(reviews)
-        rating_count = round(sum(rating_count)/rating_len)  
+        if rating_len > 0 : 
+            rating_count = round(sum(rating_count)/rating_len)
+        else:
+            rating_count =  0
         context = {
             'object':course,
             'courses':courses, 

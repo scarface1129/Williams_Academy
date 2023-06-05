@@ -98,11 +98,11 @@
                   <div class="main-menu__right">
                       <div class="main-menu__right-cart-search">
                           <div class="main-menu__right-cart-box">
-                              <a href="#"><span class="icon-shopping-cart"></span></a>
+                              <a href="{% url 'cart:cart'%}"><span class="icon-shopping-cart"></span></a>
                               <span class='badge badge-warning cart' id='lblCartCount'> {{items_in_cart}} </span>
                           </div>
                           <div class="main-menu__right-search-box">
-                              <a href="#" class="thm-btn search-toggler">Search</a>
+                                <a href="{% url 'logout' %}" class="thm-btn">Logout</a>
                           </div>
                       </div>
                   </div>
@@ -153,11 +153,11 @@
               <div class="main-menu__right">
                   <div class="main-menu__right-cart-search" id='cart_'>
                       <div class="main-menu__right-cart-box">
-                          <a href="#"><span class="icon-shopping-cart"></span></a>
+                          <a href="{% url 'cart:cart'%}"><span class="icon-shopping-cart"></span></a>
                           <span class='badge badge-warning cart' id='lblCartCount'> {{items_in_cart}} </span>
                       </div>
                       <div class="main-menu__right-search-box">
-                          <a href="#" class="thm-btn search-toggler">Search</a>
+                        <a href="{% url 'logout' %}" class="thm-btn">Logout</a>
                       </div>
                   </div>
               </div>

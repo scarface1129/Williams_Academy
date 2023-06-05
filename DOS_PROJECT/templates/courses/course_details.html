@@ -67,7 +67,12 @@
                                 
                             </div>
                             <div class="course-details__price-btn">
-                                <a href="about.html" class="thm-btn">Add to Cart</a>
+                                <form id='add_to_cart2'>
+                                    {% csrf_token %}
+                                    <input name='course_id' hidden value='{{ object.id }}'>
+                                    <input name='cart_id' hidden value='{{ user.id }}'>
+                                    <button type="submit" class="thm-btn">Add to Cart</button>
+                                </form>
                             </div>
                             <div class="course-details__content-text1">
                                 <p>{{object.course_description}}</p>
@@ -313,7 +318,7 @@
                                     <img src="{{ obj.Image.url }}" width='90' height='60' alt="course_image"/>
                                 </div>
                                 <div class="course-details__new-courses-list-item-content">
-                                    <h4 class="course-details__new-courses-list-item-content-title"><a href="course-details1.html">{{obj.Name}}</a></h4>
+                                    <h4 class="course-details__new-courses-list-item-content-title"><a href="{% url 'courses:course_detail' obj.id %}">{{obj.Name}}</a></h4>
                                     <div class="course-details__new-courses-rateing-box">
                                         {% comment %} <ul class="list-unstyled">
                                             <li><i class="fas fa-star"></i></li>
