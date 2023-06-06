@@ -83,10 +83,10 @@
                         <p>Total: </p>
                         <h2 class="course-details__price-amount">${{ price_dollars}} (N{{ price_naira}})<span></span></h2>
                         <div class="course-details__price-btn">
-                            <form id=''>
+                            <form action='{% url 'payments:initiate'%}' method = 'POST'>
                                 {% csrf_token %}
-                                <input name='course_id' hidden value='{{ object.id }}'>
-                                <input name='cart_id' hidden value='{{ user.id }}'>
+                                <input name='amount' hidden value='{{ price_naira }}'>
+                                <input name='email' hidden value='{{ user.email }}'>
                                 <button type="" class="thm-btn">Payout</button>
                             </form>
                             

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm
-
+from payments.models import *
 User = get_user_model()
 
 class UserLogin(forms.Form):
@@ -54,4 +54,5 @@ class UserSignUp(UserCreationForm):
         user.is_teacher = False
         if commit:
             user.save()
+            # UserWallet.objects.create(user=user)
         return user

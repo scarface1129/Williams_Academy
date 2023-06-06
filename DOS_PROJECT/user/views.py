@@ -9,17 +9,16 @@ def login_user(request):
     form = UserLogin()
     if request.method == "POST":
         form = UserLogin(request.POST)
+        print(form)
         if form.is_valid():
+            print('ade here')
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                if user.is_teacher:
-                    login(request, user)
-                    return redirect('home')
-                if user.is_student:
-                    login(request, user)
-                    return redirect('home')
+                login(request, user)
+                return redirect('home')
+                    
 
     context = {
         'form': form

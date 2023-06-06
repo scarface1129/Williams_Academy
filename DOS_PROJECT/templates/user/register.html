@@ -168,7 +168,11 @@
                             </div>
                         </form>
                         <div class="other-links">
-                            <span>Or register with</span><a href="{% url 'social:begin' 'facebook' %}">Facebook</a><a href="{% provider_login_url 'google' %}">Google</a><a href="{% url 'social:begin' 'github' %}">Github</a><a href="{% url 'social:begin' 'linkedin-oauth2' %}">Linkedin</a>
+                            <span>Or register with</span>
+                            {% comment %} <a href="{% url 'social:begin' 'facebook' %}">Facebook</a> {% endcomment %}
+                            <a href="{% provider_login_url 'google' %}">Google</a>
+                            <a href="{% url 'social:begin' 'github' %}">Github</a>
+                            <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Linkedin</a>
                         </div>
                     </div>
                 </div>

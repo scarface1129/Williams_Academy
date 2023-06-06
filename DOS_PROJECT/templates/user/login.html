@@ -38,6 +38,11 @@
                     <div class="form-items">
                         <h3>Welcome Back</h3>
                         <p>Login and start exploring the endless possibilities of Blockchain and Cryptocurrency.    </p>
+                        {% if form.errors %}
+                        <div class="alert alert-danger">
+                            {{ form.errors }}
+                        </div>
+                        {% endif %}
                         <div class="page-links">
                             <a href="{% url "login" %}" class="active">Login</a><a href="{% url "register" %}">Register</a>
                         </div>
@@ -46,9 +51,9 @@
                             <input class="form-control" type="text" name="username" placeholder="Username" required>
                             <div class='input-group'>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>
-                            <div class="input-group-addon">
+                            {% comment %} <div class="input-group-addon">
                                 <i class="far fa-eye" id="togglePassword" style="cursor: pointer;"></i>
-                            </div>
+                            </div> {% endcomment %}
                             </div>
                             {% comment %} <input type="checkbox" id="chk1"><label for="chk1">Remmeber me</label> {% endcomment %}
                             <div class="form-button">
@@ -56,7 +61,11 @@
                             </div>
                         </form>
                         <div class="other-links">
-                            <span>Or login with</span><a href="{% url 'social:begin' 'facebook' %}">Facebook</a><a href="{% provider_login_url 'google' %}">Google</a><a href="{% url 'social:begin' 'github' %}">Github</a><a href="{% url 'social:begin' 'linkedin-oauth2' %}">Linkedin</a>
+                            <span>Or login with</span>
+                            {% comment %} <a href="{% url 'social:begin' 'facebook' %}">Facebook</a> {% endcomment %}
+                            <a href="{% provider_login_url 'google' %}">Google</a>
+                            <a href="{% url 'social:begin' 'github' %}">Github</a>
+                            <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Linkedin</a>
                         </div>
                     </div>
                 </div>

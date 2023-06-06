@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'user.User'
 
-
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/'
+SITE_ID=2
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "user",
     "courses",
     "cart",
+    "payments",
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -178,17 +179,32 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-SITE_ID=1
+SITE_ID=2
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-# LOGIN_URL = 'user/login'
-# LOGOUT_URL = 'user/logout'
+LOGIN_URL = 'user/login'
+LOGOUT_URL = 'user/logout'
 
 SOCIALACCOUNT_QUERY_EMAIL = False
 ACCOUNT_LOGOUT_ON_GET= True
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_REQUIRED = True
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'pl_PL',
+  'fields': 'id, name, email',
+}
 
+SOCIALACCOUNT_PROVIDERS = {
+    'linkedin_oauth2': {
+        'SCOPE': [
+            'r_liteprofile',
+            'r_emailaddress',
+        ],
+        'PROFILE_FIELDS': []
+    }
+}
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 SOCIAL_AUTH_FACEBOOK_KEY = '809047180576303' # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e8e5e26c85870f2a3d79282cb05d8262' # App Secret
