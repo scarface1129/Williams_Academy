@@ -3,7 +3,10 @@ from .models import *
 from django.conf import settings
 from courses.models import *
 from cart.models import *
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url='/user/login/')
 def initiate_payment(request):
     if request.method == "POST":
         amount = request.POST['amount']
@@ -28,7 +31,7 @@ def initiate_payment(request):
 
     return render(request, 'payments/payment.html')
 
-
+@login_required(login_url='/user/login/')
 def verify_payment(request, ref):
     payment = Payment.objects.get(ref=ref)
     verified = payment.verify_payment()

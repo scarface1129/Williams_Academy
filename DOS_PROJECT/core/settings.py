@@ -69,6 +69,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -87,6 +88,7 @@ TEMPLATES = [
                 "main.context_processors.categories_processor",
                 'social_django.context_processors.backends', # added
                 'social_django.context_processors.login_redirect', # added
+                'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -217,3 +219,12 @@ SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
 
 PAYSTACK_SECRET_KEY = "sk_test_651eadc8100579d0c78d515657ff7a7bfebc6b79"
 PAYSTACK_PUBLIC_KEY = "pk_test_6acbf9fc0c496b13dc80fea3d0d0b7f28e757e63"
+
+
+from datetime import timedelta
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=10),
+    'SESSION_TIME': timedelta(minutes=10),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}

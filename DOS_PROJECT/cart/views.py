@@ -11,8 +11,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='/user/login/')
 def cart(request):
     cart = Cart.objects.get(user_id = request.user)
     Order_ = Order.objects.filter(cart_id = cart.id).order_by('-id')
@@ -27,7 +29,7 @@ def cart(request):
     context = {'course': course, 'price_dollars':price_dollars,'price_naira':price_naira}
     return render(request, 'courses/cart.html', context)
 
-
+@login_required(login_url='/user/login/')
 def create_order(request):
     course_id = request.POST.get('course_id')
     user_id = request.POST.get('cart_id')

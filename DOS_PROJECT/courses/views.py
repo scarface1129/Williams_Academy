@@ -12,9 +12,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.http import HttpResponse
-
-
-
+from django.contrib.auth.decorators import login_required
 
 
 class CreateCourses(LoginRequiredMixin,CreateView):
@@ -42,7 +40,7 @@ class UpdateCourses(LoginRequiredMixin,UpdateView):
         slug = self.kwargs['slug']
         return Courses.objects.filter(id = slug)
     
-
+@login_required(login_url='/user/login/')
 def courses(request):
     courses = Courses.objects.all().order_by('-id')
     context = {'courses': courses}
@@ -50,12 +48,9 @@ def courses(request):
 
 
 
-class CourseDetail(DetailView):
-    # template_name = 'courses/course_details.html'
-    # def get_queryset(self,*args, **kwargs):
-    #     course_id = self.kwargs['pk']
-    #     return Courses.objects.filter(id=course_id)
-    
+class CourseDetail(LoginRequiredMixin,DetailView):
+    login_url = "/user/login/"
+    # redirect_field_name = 'redirect_to'
     def get(self,request,*args, **kwargs):
         course_id = self.kwargs['pk']
         course = Courses.objects.get(id=course_id)

@@ -46,7 +46,12 @@
                         <div class="page-links">
                             <a href="{% url "login" %}" class="active">Login</a><a href="{% url "register" %}">Register</a>
                         </div>
+                        {% if next %}
+                        <form action="/user/login/?next={{next}}" method="post" >
+                        {%else%}
                         <form action="{% url "login" %}" method="POST" enctype="multipart/form-data">
+                        {% endif %}
+                        
                         {% csrf_token %}
                             <input class="form-control" type="text" name="username" placeholder="Username" required>
                             <div class='input-group'>
