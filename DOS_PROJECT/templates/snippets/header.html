@@ -77,10 +77,8 @@
                      <li><a href="{% url 'home' %}" style='color:#4d71e9;'>Home</a></li>
                       </li>
                       <li><a href="{% url 'about' %}">About</a></li>
-                      <li><a href="{% url 'courses:courses' %}">Courses</a></li>
-                      
-                     </li>
-                    
+                      <li><a href="{% url 'registered_course' %}">My Courses</a></li>                    
+                      <li><a href="{% url 'courses:courses' %}">Courses</a></li>                    
                       <li><a href="{% url 'contact' %}">Contact</a></li>
                       {% if user.is_superuser%}
                       <li class="dropdown">
@@ -132,6 +130,7 @@
                  <li><a href="{% url 'home' %}" style='color:#4d71e9;'>Home</a></li>
                   </li>
                   <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'registered_course' %}">My Courses</a></li> 
                   <li><a href="{% url 'courses:courses' %}">Courses</a></li>
                   
                  </li>

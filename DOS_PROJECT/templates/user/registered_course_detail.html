@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+        {%include 'snippets/header.html'%}
+        <div class="stricky-header stricky-header--two stricked-menu main-menu">
+            <div class="sticky-header__content">
+
+            </div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+        <section
+        class="page-header clearfix"
+        style="background-image: url({% static 'images/backgrounds/page-header-bg.jpg' %})"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="page-header__wrapper clearfix">
+                <div class="page-header__title">
+                  <h2>{{course}}</h2>
+                </div>
+                <div class="page-header__menu">
+                  <ul class="page-header__menu-list list-unstyled clearfix">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">My Courses</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+                <!--Features One Start-->
+                <section class="features-one">
+                    <div class="container">
+                        <div class="row">
+                            <!--Start Single Features One-->
+                            {% for item in module %}
+                                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <a href='{% url 'module' item.id %}'>
+                                    <div class="features-one__single">
+                                        <div class="features-one__single-icon">
+                                            {% comment %} <span class="icon-empowerment"></span> {% endcomment %}
+                                            <img src="{{ course.Image.url }}" width='90' height='60' alt="course_image"/>
+                                        </div>
+                                        <div class="features-one__single-text">
+                                            <h4>{{item.module_name}}</a></h4>
+                                            <p>Episode - {{item.module_number}}</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                            {% endfor %}
+                            <!--End Single Features One-->
+                        </div>
+                    </div>
+                </section>
+                <!--Features One End-->
+
+       
+        <!--Video One Start-->
+        {% comment %} <section class="video-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="video-one__box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"
+                            style="background-image: url({% static 'images/backgrounds/video-v1-bg.jpg' %})">
+                            <div class="video-one__box-title">
+                                <h2>Watch    Video</h2>
+                            </div>
+                            <div class="icon wow zoomIn" data-wow-delay="150ms" data-wow-duration="1500ms">
+                                <a class="video-popup" title="Zilom Video Gallery"
+                                    href="https://www.youtube.com/watch?v=p25gICT63ek">
+                                    <span class="icon-play"></span>
+                                </a>
+                                <span class="border-animation border-1"></span>
+                                <span class="border-animation border-2"></span>
+                                <span class="border-animation border-3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> {% endcomment %}
+        <!--Video One End-->
+       
+        
+
+
+
+        <!--Company Logos One Start-->
+        <br> 
+        <section class="company-logos-one company-logos-one--two">
+            <div class="container">
+                <div class="company-logos-one__title text-center">
+                    <h6>
+                        Apps you will get familiar with </h6>
+                </div>
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
+                "0": {
+                    "spaceBetween": 30,
+                    "slidesPerView": 2
+                },
+                "375": {
+                    "spaceBetween": 30,
+                    "slidesPerView": 2
+                },
+                "575": {
+                    "spaceBetween": 30,
+                    "slidesPerView": 3
+                },
+                "767": {
+                    "spaceBetween": 50,
+                    "slidesPerView": 4
+                },
+                "991": {
+                    "spaceBetween": 50,
+                    "slidesPerView": 5
+                },
+                "1199": {
+                    "spaceBetween": 100,
+                    "slidesPerView": 5
+                }
+            }}'>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo1.png' %}" alt="https://trustwallet.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo2.png' %}" alt="https://www.binance.com/en">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo3.png' %}" alt="https://www.bybit.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo4.png' %}" alt="https://www.coingecko.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo5.png' %}" alt="https://www.metamask.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo6.png' %}" alt="https://www.opensea.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo7.png' %}" alt="https://www.tradingview.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo8.png' %}" alt="https://www.rarible.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo9.png' %}" alt="https://www.redit.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo10.png' %}" alt="https://telegram.com/">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/resources/Company-Logos-v1-logo11.png' %}" alt="https://twitter.com/">
+                        </div><!-- /.swiper-slide -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Company Logos One End-->
+
+
+        <!--Start Footer One-->
+ 
+{% endblock %}

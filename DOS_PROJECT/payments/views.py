@@ -3,6 +3,7 @@ from .models import *
 from django.conf import settings
 from courses.models import *
 from cart.models import *
+from user.models import *
 from django.contrib.auth.decorators import login_required
 
 
@@ -12,8 +13,6 @@ def initiate_payment(request):
         amount = request.POST['amount']
         email = request.POST['email']
         if email == '':
-            print(email)
-            print('#################')
             email = 'agboemmanuel002@gmail.com'
 
         pk = settings.PAYSTACK_PUBLIC_KEY
@@ -42,8 +41,11 @@ def verify_payment(request, ref):
         # user_wallet.save()
         user = request.user
         cart = Cart.objects.get(user_id = user.id)
-        Orders = Order.objects.filter(cart_id = cart.id)     
+        Orders = Order.objects.filter(cart_id = cart.id)
+        for item in Orders:
+            Registered_Course.objects.get_or_create(user_id=user,course_id=item.course_id)    
         Orders.delete()     
+        
         print(request.user.username, " funded wallet successfully")
         return render(request, "payments/success.html")
     return render(request, "payments/success.html")

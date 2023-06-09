@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import DetailView, View, CreateView, UpdateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
+from user.models import *
 from django.http import JsonResponse
 from django.core import serializers
 from django.conf import settings
@@ -42,7 +43,8 @@ class UpdateCourses(LoginRequiredMixin,UpdateView):
     
 @login_required(login_url='/user/login/')
 def courses(request):
-    courses = Courses.objects.all().order_by('-id')
+    reg_courses = Registered_Course.objects.filter(user_id=request.user.id)
+    courses = Courses.objects.exclude(my_course__in=reg_courses).order_by('-id')
     context = {'courses': courses}
     return render(request, 'courses/courses.html', context)
 

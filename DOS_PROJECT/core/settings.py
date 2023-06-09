@@ -25,9 +25,16 @@ SECRET_KEY = "django-insecure-+c$ou_@6g&und5%maneyvikwnwe4%e!ko(dfbfcn#-d$t#-(4u
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+# SMS_BACKEND = 'sms.backends.console.SmsBackend'
+SMS_BACKEND = 'sms.backends.messagebird.SmsBackend'
+MESSAGEBIRD_ACCESS_KEY = 'rS5788cYIz5VNwcgT07h7H0PY'
 ALLOWED_HOSTS = []
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "abgoemmanuel002@gmail.com"
+EMAIL_HOST_PASSWORD =  "08032884565"
 
 AUTH_USER_MODEL = 'user.User'
 
@@ -55,6 +62,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'social_django',
+    # 'otp_messagebird',
 
 ]
 
@@ -224,7 +232,7 @@ PAYSTACK_PUBLIC_KEY = "pk_test_6acbf9fc0c496b13dc80fea3d0d0b7f28e757e63"
 from datetime import timedelta
 AUTO_LOGOUT = {
     'IDLE_TIME': timedelta(minutes=10),
-    'SESSION_TIME': timedelta(minutes=10),
+    # 'SESSION_TIME': timedelta(minutes=10),
     'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
